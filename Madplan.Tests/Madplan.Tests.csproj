@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\RecipeServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -106,6 +107,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Madplan.ClassLibrary\Madplan.ClassLibrary.csproj">
+      <Project>{e4ec907d-e2be-45fb-8419-b5360b25dcb3}</Project>
+      <Name>Madplan.ClassLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Madplan.WebSite\Madplan.WebSite.csproj">
       <Project>{B6E4C6E8-1810-472F-BC82-8D7AF7864533}</Project>
       <Name>Madplan.WebSite</Name>
