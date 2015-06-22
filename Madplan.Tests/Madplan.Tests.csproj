@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\FoodProductServiceTest.cs" />
     <Compile Include="Services\RecipeServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>

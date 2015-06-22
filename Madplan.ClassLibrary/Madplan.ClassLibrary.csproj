@@ -39,8 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\FoodProduct\FoodProduct.cs" />
     <Compile Include="Models\Recipe\Recipe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\FoodProductService.cs" />
+    <Compile Include="Services\IFoodProductService.cs" />
     <Compile Include="Services\IRecipeService.cs" />
     <Compile Include="Services\RecipeService.cs" />
   </ItemGroup>
