@@ -59,12 +59,12 @@
     <add type="Umbraco.Web.PropertyEditors.ValueConverters.RteMacroRenderingValueConverter, umbraco, Version=1.0.5632.22686, Culture=neutral, PublicKeyToken=null" />
   </baseType>
   <baseType type="Umbraco.Web.Mvc.SurfaceController" resolutionType="FindAllTypes">
+    <add type="Madplan.WebSite.Controllers.SurfaceControllers.FoodProductsListSurfaceController, Madplan.WebSite, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="Madplan.WebSite.Controllers.SurfaceControllers.ProfileDetailsSurfaceController, Madplan.WebSite, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.Controllers.UmbProfileController, umbraco, Version=1.0.5632.22686, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.Controllers.UmbLoginStatusController, umbraco, Version=1.0.5632.22686, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.Controllers.UmbRegisterController, umbraco, Version=1.0.5632.22686, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.Controllers.UmbLoginController, umbraco, Version=1.0.5632.22686, Culture=neutral, PublicKeyToken=null" />
-    <add type="Madplan.WebSite.Controllers.SurfaceControllers.FoodProductsListSurfaceController, Madplan.WebSite, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="Madplan.WebSite.Controllers.SurfaceControllers.ProfileDetailsSurfaceController, Madplan.WebSite, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   </baseType>
   <baseType type="Umbraco.Web.WebApi.UmbracoApiController" resolutionType="FindAllTypes">
     <add type="Umbraco.Web.Editors.AuthenticationController, umbraco, Version=1.0.5632.22686, Culture=neutral, PublicKeyToken=null" />

@@ -19,17 +19,19 @@ namespace Madplan.WebSite.Controllers.SurfaceControllers
     {
 
 		private IFoodProductService _foodProductService;
+		private IRecipeService _recipeService;
 
-		public FoodProductsListSurfaceController(FoodProductService foodProductService)
+		public FoodProductsListSurfaceController(IFoodProductService foodProductService, IRecipeService recipeService)
 		{
 			_foodProductService = foodProductService;
+			_recipeService = recipeService;
 		}
-
+		
 		public FoodProductsListSurfaceController()
 		{
 			_foodProductService = new FoodProductService(ConfigurationManager.ConnectionStrings["FoodDb"].ConnectionString);//DependencyResolver.Current.GetService(typeof(IFoodProductService)) as IFoodProductService;
 		}
-
+		
 		//Method for rendering partial view with @Html.Action("RenderFoodProductsList","FoodProductsListSurface");
 		[ChildActionOnly]
         public ActionResult RenderFoodProductsList()
