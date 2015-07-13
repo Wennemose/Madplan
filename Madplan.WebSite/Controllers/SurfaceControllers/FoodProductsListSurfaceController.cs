@@ -10,26 +10,30 @@ using Madplan.ClassLibrary.Models.FoodProduct;
 using Madplan.ClassLibrary.Services;
 using System.Configuration;
 
+using Autofac;
+using Autofac.Integration.Mvc;
 
 namespace Madplan.WebSite.Controllers.SurfaceControllers
 { 
     public class FoodProductsListSurfaceController : SurfaceController
     {
 
-		public FoodProductService _foodProductService 
+		private IFoodProductService _foodProductService;
+
+		public FoodProductsListSurfaceController(FoodProductService foodProductService)
 		{
-			get
-			{
-				string connectionstring = ConfigurationManager.ConnectionStrings["FoodDb"].ConnectionString;
-				FoodProductService foodProductService = new FoodProductService(connectionstring);
-				return foodProductService;
-			}
+			_foodProductService = foodProductService;
+		}
+
+		public FoodProductsListSurfaceController()
+		{
+			_foodProductService = new FoodProductService(ConfigurationManager.ConnectionStrings["FoodDb"].ConnectionString);//DependencyResolver.Current.GetService(typeof(IFoodProductService)) as IFoodProductService;
 		}
 
 		//Method for rendering partial view with @Html.Action("RenderFoodProductsList","FoodProductsListSurface");
 		[ChildActionOnly]
-        public ActionResult RenderFoodProductsList(){
-
+        public ActionResult RenderFoodProductsList()
+		{
 			List<FoodProduct> products = _foodProductService.GetAllFoodProducts();
 
 			return PartialView("FoodProductsList", new FoodProductsListModel(products));

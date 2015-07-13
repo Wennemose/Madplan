@@ -7,3 +7,8 @@ C:\Projects\GitRepo\Madplan\Madplan.ClassLibrary\obj\Debug\Madplan.ClassLibrary.
 C:\Projects\GitRepo\Madplan\Madplan.ClassLibrary\obj\Debug\Madplan.ClassLibrary.pdb
 C:\Projects\GitRepo\Madplan\Madplan.ClassLibrary\bin\Debug\Madplan.ClassLibrary.dll
 C:\Projects\GitRepo\Madplan\Madplan.ClassLibrary\bin\Debug\Madplan.ClassLibrary.pdb
+C:\Projects\GitRepo\madplan2\Madplan\Madplan.ClassLibrary\bin\Debug\Madplan.ClassLibrary.dll
+C:\Projects\GitRepo\madplan2\Madplan\Madplan.ClassLibrary\bin\Debug\Madplan.ClassLibrary.pdb
+C:\Projects\GitRepo\madplan2\Madplan\Madplan.ClassLibrary\obj\Debug\Madplan.ClassLibrary.dll
+C:\Projects\GitRepo\madplan2\Madplan\Madplan.ClassLibrary\obj\Debug\Madplan.ClassLibrary.pdb
+C:\Projects\GitRepo\madplan2\Madplan\Madplan.ClassLibrary\obj\Debug\Madplan.ClassLibrary.csprojResolveAssemblyReference.cache
