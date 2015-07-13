@@ -1,2 +1,6 @@
 Madplan.WebSite/App_data
+Madplan.WebSite/bin/Madplan.ClassLibrary.dll
+Madplan.WebSite/bin/Madplan.ClassLibrary.pdb
+Madplan.WebSite/bin/Madplan.WebSite.dll
+Madplan.WebSite/bin/Madplan.WebSite.pdb
 Madplan.Tests/bin/Debug
