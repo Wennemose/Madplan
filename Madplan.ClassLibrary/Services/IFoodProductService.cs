@@ -7,7 +7,7 @@ using Madplan.ClassLibrary.Models.FoodProduct;
 
 namespace Madplan.ClassLibrary.Services
 {
-	interface IFoodProductService
+	public interface IFoodProductService
 	{
 		List<FoodProduct> GetAllFoodProducts();
 		List<FoodProduct> GetFoodProduct(int id);

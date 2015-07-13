@@ -28,7 +28,45 @@ namespace Madplan.ClassLibrary.Services
 
 		public List<FoodProduct> GetAllFoodProducts()
 		{
-			throw new NotImplementedException();
+			List<FoodProduct> result = new List<FoodProduct>();
+
+			try
+			{
+				using (SqlConnection connection = new SqlConnection(_connectionString))
+				{
+					using (SqlCommand command = connection.CreateCommand())
+					{
+						command.CommandType = CommandType.StoredProcedure;
+						command.CommandText = "GetAllFoodProducts";
+
+						connection.Open();
+
+						using (SqlDataReader reader = command.ExecuteReader())
+						{
+							while (reader.Read())
+							{
+								FoodProduct product = new FoodProduct();
+								product.Calories = Convert.ToDecimal(reader["Calories"]);
+								product.Carbonhydrate = Convert.ToDecimal(reader["Carbonhydrate"]);
+								product.Fat = Convert.ToDecimal(reader["Fat"]);
+								product.Id = Convert.ToInt32(reader["Id"]);
+								product.Names["da-DK"] = Convert.ToString(reader["da-DK"]);
+								product.Names["en-US"] = Convert.ToString(reader["en-US"]);
+								product.Protein = Convert.ToDecimal(reader["Protein"]);
+
+								result.Add(product);
+							}
+						}
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				throw;
+			}
+
+			return result;
+			
 		}
 
 		public List<FoodProduct> GetFoodProduct(int id)

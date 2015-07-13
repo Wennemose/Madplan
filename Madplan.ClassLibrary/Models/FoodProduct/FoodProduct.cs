@@ -15,6 +15,14 @@ namespace Madplan.ClassLibrary.Models.FoodProduct
 		public decimal Fat { get; set; }
 		public decimal Calories { get; set; }
 
+		public string Name
+		{
+			get
+			{
+				return Names["da-DK"];
+			}
+		}
+
 		public FoodProduct()
 		{
 			Names = new Dictionary<string, string>();
