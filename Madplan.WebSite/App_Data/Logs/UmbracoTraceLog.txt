@@ -14,3 +14,43 @@
 2015-07-14 00:32:24,177 [607] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T352/D28] [ScheduledPublishing] Tasks completed, terminated
 2015-07-14 00:32:24,178 [607] INFO  Umbraco.Core.UmbracoApplicationBase - [T365/D28] Application shutdown. Reason: ConfigurationChange
 2015-07-14 00:33:12,234 [378] INFO  Umbraco.Core.CoreBootManager - [T1/D29] Umbraco application starting
+2015-07-14 00:33:12,283 [378] INFO  Umbraco.Core.PluginManager - [T1/D29] Determining hash of code files on disk
+2015-07-14 00:33:12,293 [378] INFO  Umbraco.Core.PluginManager - [T1/D29] Hash determined (took 8ms)
+2015-07-14 00:33:12,307 [378] INFO  Umbraco.Core.PluginManager - [T1/D29] Starting resolution types of umbraco.interfaces.IApplicationStartupHandler
+2015-07-14 00:33:12,525 [378] INFO  Umbraco.Core.PluginManager - [T1/D29] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 37 (took 216ms)
+2015-07-14 00:33:12,600 [378] INFO  Umbraco.Core.PluginManager - [T1/D29] Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+2015-07-14 00:33:12,606 [378] INFO  Umbraco.Core.PluginManager - [T1/D29] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 6ms)
+2015-07-14 00:33:12,606 [378] INFO  Umbraco.Core.PluginManager - [T1/D29] Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyValueConverter
+2015-07-14 00:33:12,612 [378] INFO  Umbraco.Core.PluginManager - [T1/D29] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyValueConverter, found 16 (took 5ms)
+2015-07-14 00:33:12,633 [378] INFO  Umbraco.Core.PluginManager - [T1/D29] Starting resolution types of Umbraco.Web.Mvc.SurfaceController
+2015-07-14 00:33:12,639 [378] INFO  Umbraco.Core.PluginManager - [T1/D29] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 7 (took 6ms)
+2015-07-14 00:33:12,640 [378] INFO  Umbraco.Core.PluginManager - [T1/D29] Starting resolution types of Umbraco.Web.WebApi.UmbracoApiController
+2015-07-14 00:33:12,645 [378] INFO  Umbraco.Core.PluginManager - [T1/D29] Completed resolution of types of Umbraco.Web.WebApi.UmbracoApiController, found 35 (took 5ms)
+2015-07-14 00:33:12,696 [378] INFO  Umbraco.Core.PluginManager - [T1/D29] Starting resolution types of Umbraco.Core.Media.IThumbnailProvider
+2015-07-14 00:33:12,702 [378] INFO  Umbraco.Core.PluginManager - [T1/D29] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 5ms)
+2015-07-14 00:33:12,702 [378] INFO  Umbraco.Core.PluginManager - [T1/D29] Starting resolution types of Umbraco.Core.Media.IImageUrlProvider
+2015-07-14 00:33:12,709 [378] INFO  Umbraco.Core.PluginManager - [T1/D29] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 6ms)
+2015-07-14 00:33:13,537 [378] INFO  Umbraco.Web.Search.ExamineEvents - [T1/D29] Initializing Examine and binding to business logic events
+2015-07-14 00:33:13,701 [378] INFO  Umbraco.Web.Search.ExamineEvents - [T1/D29] Adding examine event handlers for index providers: 3
+2015-07-14 00:33:13,711 [378] INFO  Umbraco.Core.CoreBootManager - [T1/D29] Umbraco application startup complete (took 1452ms)
+2015-07-14 00:33:13,910 [378] INFO  Umbraco.Web.UmbracoModule - [T360/D29] Setting OriginalRequestUrl: localhost:55191/umbraco
+2015-07-14 00:34:14,400 [378] INFO  umbraco.BusinessLogic.Log - [T365/D29] Log scrubbed.  Removed all items older than 2015-05-15 00:34:14
+2015-07-14 00:34:14,758 [378] INFO  umbraco.content - [T352/D29] Load Xml from file...
+2015-07-14 00:34:14,760 [378] INFO  umbraco.content - [T352/D29] Loaded Xml from file.
+2015-07-14 00:34:14,777 [378] INFO  Umbraco.Core.PluginManager - [T352/D29] Starting resolution types of Umbraco.Core.Persistence.Mappers.BaseMapper
+2015-07-14 00:34:14,786 [378] INFO  Umbraco.Core.PluginManager - [T352/D29] Completed resolution of types of Umbraco.Core.Persistence.Mappers.BaseMapper, found 23 (took 7ms)
+2015-07-14 00:35:44,590 [378] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T365/D29] [XmlCacheFilePersister] Terminating
+2015-07-14 00:35:44,590 [378] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T365/D29] [XmlCacheFilePersister] Waiting for tasks to complete
+2015-07-14 00:35:44,591 [378] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T365/D29] [ScheduledPublishing] Terminating
+2015-07-14 00:35:44,591 [378] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T365/D29] [ScheduledPublishing] Waiting for tasks to complete
+2015-07-14 00:35:44,592 [378] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T365/D29] [ScheduledPublishing] Tasks completed, terminated
+2015-07-14 00:35:44,592 [378] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T365/D29] [ScheduledTasks] Terminating
+2015-07-14 00:35:44,592 [378] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T365/D29] [ScheduledTasks] Waiting for tasks to complete
+2015-07-14 00:35:44,592 [378] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T365/D29] [ScheduledTasks] Tasks completed, terminated
+2015-07-14 00:35:44,592 [378] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T365/D29] [LogScrubber] Terminating
+2015-07-14 00:35:44,592 [378] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T365/D29] [LogScrubber] Waiting for tasks to complete
+2015-07-14 00:35:44,592 [378] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T365/D29] [LogScrubber] Tasks completed, terminated
+2015-07-14 00:35:44,600 [378] INFO  umbraco.content - [T345/D29] Save Xml to file...
+2015-07-14 00:35:44,608 [378] INFO  umbraco.content - [T352/D29] Saved Xml to file.
+2015-07-14 00:35:44,616 [378] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T352/D29] [XmlCacheFilePersister] Tasks completed, terminated
+2015-07-14 00:35:44,727 [378] INFO  Umbraco.Core.UmbracoApplicationBase - [T357/D29] Application shutdown. Reason: ConfigurationChange

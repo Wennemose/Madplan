@@ -1,4 +1,6 @@
 Madplan.WebSite/App_data
+Madplan.WebSite/App_data/Logs
+Madplan.WebSite/App_data/TEMP/PluginCache
 Madplan.WebSite/bin/Madplan.ClassLibrary.dll
 Madplan.WebSite/bin/Madplan.ClassLibrary.pdb
 Madplan.WebSite/bin/Madplan.WebSite.dll
