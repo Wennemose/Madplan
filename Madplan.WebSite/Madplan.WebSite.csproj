@@ -3285,6 +3285,7 @@
   <ItemGroup>
     <Folder Include="App_Code\" />
     <Folder Include="assets\jquery-file-upload\server\php\files\thumbnail\" />
+    <Folder Include="Extensions\" />
     <Folder Include="masterpages\" />
     <Folder Include="usercontrols\" />
     <Folder Include="Views\MacroPartials\" />

@@ -65,7 +65,10 @@
     <add type="Umbraco.Web.Controllers.UmbLoginController, umbraco, Version=1.0.5632.22686, Culture=neutral, PublicKeyToken=null" />
     <add type="Madplan.WebSite.Controllers.SurfaceControllers.FoodProductsListSurfaceController, Madplan.WebSite, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="Madplan.WebSite.Controllers.SurfaceControllers.ProfileDetailsSurfaceController, Madplan.WebSite, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+<<<<<<< HEAD
     <add type="Madplan.WebSite.Controllers.SurfaceControllers.UserDataSurfaceController, Madplan.WebSite, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+=======
+>>>>>>> ecaae0f4601022ab935ce7781e7cdcc8e353a2c5
   </baseType>
   <baseType type="Umbraco.Web.WebApi.UmbracoApiController" resolutionType="FindAllTypes">
     <add type="Umbraco.Web.Editors.AuthenticationController, umbraco, Version=1.0.5632.22686, Culture=neutral, PublicKeyToken=null" />
