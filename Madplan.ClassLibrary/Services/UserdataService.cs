@@ -42,15 +42,25 @@ namespace Madplan.ClassLibrary.Services
 
                         connection.Open();
 
+<<<<<<< master
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             result = command.ExecuteNonQuery() == 1;
                         }
+=======
+
+                        result = command.ExecuteNonQuery() == 1;
+
+>>>>>>> local
                     }
 
                 }
 
+<<<<<<< master
                 
+=======
+
+>>>>>>> local
             }
             catch (Exception ex)
             {

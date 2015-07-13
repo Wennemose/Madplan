@@ -1,0 +1,47 @@
+
+
+@using Madplan.WebSite.Controllers.SurfaceControllers
+@using Madplan.WebSite.Models
+@model UserDataModel
+
+@using(Ajax.BeginForm("SetUserData", "UserDataSurface", new AjaxOptions{HttpMethod = "POST", OnFailure="Showerror", OnSuccess ="ShowUpdateMessage"}))
+    {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>UserDataModel</legend>
+
+        
+		<div class="editor-label">
+            @Html.LabelFor(model => model.Weight)
+        </div>
+
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Weight)
+            @Html.ValidationMessageFor(model => model.Weight)
+        </div>
+        
+		<div class="editor-label">
+            @Html.LabelFor(model => model.Height)
+        </div>
+
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Height)
+            @Html.ValidationMessageFor(model => model.Height)
+        </div>
+        
+		<div class="editor-label">
+            @Html.LabelFor(model => model.Age)
+        </div>
+
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Age)
+            @Html.ValidationMessageFor(model => model.Age)
+        </div>
+            @Html.HiddenFor(mode => Model.Id)
+         
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
