@@ -8,6 +8,9 @@ using Umbraco.Web.Mvc;
 using Madplan.WebSite.Models;
 
 
+
+using Madplan.ClassLibrary.Services;
+using System.Configuration;
 namespace Madplan.WebSite.Controllers.SurfaceControllers
 { 
     public class UserDataSurfaceController : SurfaceController
@@ -17,6 +20,20 @@ namespace Madplan.WebSite.Controllers.SurfaceControllers
         public ActionResult RenderUserData(){
 			return PartialView("UserData", new UserDataModel());
 		}
+
+
+        [HttpPost]
+        public ActionResult SetUserData(UserDataModel model)
+        {
+           IUserdataService userdataservice = new UserdataService(ConfigurationManager.ConnectionStrings["FoodDb"].ConnectionString);
+
+           bool result =  userdataservice.SetUserData(model.ToUserData());
+
+
+           return Json(result);
+        }
+
+
 
 		//endpoint for posting data to a surface controller action
 	    [HttpPost]

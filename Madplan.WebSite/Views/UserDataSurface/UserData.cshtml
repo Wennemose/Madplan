@@ -4,22 +4,13 @@
 @using Madplan.WebSite.Models
 @model UserDataModel
 
-@using(Html.BeginUmbracoForm<UserDataSurfaceController>("HandleUserData") )
+@using(Ajax.BeginForm("SetUserData", "UserDataSurface", new AjaxOptions{HttpMethod = "POST", OnFailure="Showerror", OnSuccess ="ShowUpdateMessage"}))
     {
     @Html.ValidationSummary(true)
 
     <fieldset>
         <legend>UserDataModel</legend>
 
-        
-		<div class="editor-label">
-            @Html.LabelFor(model => model.Id)
-        </div>
-
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Id)
-            @Html.ValidationMessageFor(model => model.Id)
-        </div>
         
 		<div class="editor-label">
             @Html.LabelFor(model => model.Weight)
@@ -47,6 +38,8 @@
             @Html.EditorFor(model => model.Age)
             @Html.ValidationMessageFor(model => model.Age)
         </div>
+            @Html.HiddenFor(mode => Model.Id)
+         
         <p>
             <input type="submit" value="Create" />
         </p>

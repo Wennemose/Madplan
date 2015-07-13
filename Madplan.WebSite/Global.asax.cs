@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Reflection;
 using System.Web;
@@ -31,19 +30,16 @@ namespace Madplan.WebSite
 		{
 			base.OnApplicationStarted(sender, e);
 
-			ContainerBuilder builder = new ContainerBuilder();
+			var builder = new ContainerBuilder();
 
 			builder.Register(c => UmbracoContext.Current).AsSelf();
 
 			builder.RegisterControllers(typeof(MadplanApplication).Assembly);
-			//builder.RegisterControllers(Assembly.GetExecutingAssembly());
+			builder.RegisterControllers(Assembly.GetExecutingAssembly());
 
 
 			// register services
 			builder.RegisterType<FoodProductService>().As<IFoodProductService>();
-			builder.RegisterType<RecipeService>().As<IRecipeService>();
-			//FoodProductService foodProductService = new FoodProductService(ConfigurationManager.ConnectionStrings["FoodDb"].ConnectionString);
-			//builder.RegisterInstance<FoodProductService>(foodProductService);
 
 			IContainer container = builder.Build();
 
