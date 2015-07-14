@@ -47,6 +47,8 @@
 			@Html.LabelFor(model => model.Password)
 			@Html.EditorFor(model => model.Password)
 		</div>
+
+		@Html.CheckBoxFor(model => model.Persistent)
 	</fieldset>
 	
 	<input type="submit" value="Login" />

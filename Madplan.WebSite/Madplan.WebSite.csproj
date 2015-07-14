@@ -254,12 +254,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeTemplates\AddView\CSHTML\SurfaceController.cs" />
+    <Compile Include="Controllers\SurfaceControllers\AccountSurfaceController.cs" />
     <Compile Include="Controllers\SurfaceControllers\FoodProductsListSurfaceController.cs" />
     <Compile Include="Controllers\SurfaceControllers\ProfileDetailsSurfaceController.cs" />
     <Compile Include="Controllers\SurfaceControllers\UserDataSurfaceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\FoodProductsListModel.cs" />
     <Compile Include="Models\ProfileDetailsModel.cs" />
     <Compile Include="Models\UserDataModel.cs" />
@@ -3281,6 +3283,8 @@
     <Content Include="Views\Profile.cshtml" />
     <Content Include="Views\ProfileDetailsSurface\ProfileDetails.cshtml" />
     <Content Include="Views\UserDataSurface\UserData.cshtml" />
+    <Content Include="Views\Partials\Breadcrumb.cshtml" />
+    <Content Include="Views\AccountSurface\Account.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />

@@ -1,0 +1,103 @@
+@using Madplan.WebSite.Controllers.SurfaceControllers
+@using Madplan.WebSite.Models
+@model AccountModel
+
+<script type="text/javascript">
+	function Login(data) {
+		if (data.Result == false) {
+			ShowLoginError();
+		}
+		else {
+			window.location = window.location;
+		}
+	};
+
+	function ShowLoginError()
+	{
+		$("#loginform").find(".form-group").addClass("has-error");
+	}
+
+	function Create(data) {
+		var createform = $("#createform");
+		if (data.Status === "InvalidPassword")
+		{
+			createform.find(".passwordhelp").text("Password skal være mindst 8 karakterer");
+		}
+		if (data.Status === "DuplicateUserName")
+		{
+			createform.find(".usernamehelp").text("Brugernavnet er allerede taget i brug, vælg et andet brugernavn");
+		}
+		else if (data.Status === "Success")
+		{
+			window.location = window.location;
+		}
+	}
+
+	function ShowCreateError() {
+		$("#createform").find(".form-group").addClass("has-error");
+	}
+</script>
+
+<div class="row">
+	<div class="col-lg-6">
+		<section class="panel">
+			<header class="panel-heading">
+				Login
+			</header>
+			<div class="panel-body">
+
+				@using (Ajax.BeginForm("Login", "Account", new AjaxOptions { HttpMethod = "POST", OnFailure = "ShowLoginError", OnSuccess = "Login" }, new { @role = "form", @id = "loginform" }))
+				{
+					<div class="form-group">
+						@Html.LabelFor(model => model.Name)
+						@Html.TextBoxFor(model => model.Name, new { @class="form-control", @placeholder="Navn" })
+					</div>
+					<div class="form-group">
+						@Html.LabelFor(model => model.Password)
+						@Html.PasswordFor(model => model.Password, new { @class="form-control", @placeholder="Password" })
+					</div>
+					<div class="checkbox">
+						<label>
+							@Html.CheckBoxFor(model => model.Persistent)
+						</label>
+					</div>
+					<button type="submit" class="btn btn-primary">Login</button>
+				}
+			</div>
+		</section>
+	</div>
+
+	<div class="col-lg-6">
+		<section class="panel">
+			<header class="panel-heading">
+				Create
+			</header>
+			<div class="panel-body">
+
+				@using(Ajax.BeginForm("Create", "Account", new AjaxOptions { HttpMethod = "POST", OnFailure="ShowCreateError", OnSuccess="Create" }, new { @role="form", @id="createform"}))
+				{
+					<div class="form-group">
+						@Html.LabelFor(model => model.Name)
+						@Html.TextBoxFor(model => model.Name, new { @class="form-control", @placeholder="Navn" })
+						<span class="help-block usernamehelp"></span>
+					</div>
+					<div class="form-group">
+						@Html.LabelFor(model => model.Email)
+						@Html.TextBoxFor(model => model.Email, new { @class="form-control", @placeholder="Email" })
+						<span class="help-block emailhelp"></span>
+					</div>
+					<div class="form-group">
+						@Html.LabelFor(model => model.Password)
+						@Html.PasswordFor(model => model.Password, new { @class="form-control", @placeholder="Password" })
+						<span class="help-block passwordhelp"></span>
+					</div>
+					<div class="form-group">
+						@Html.LabelFor(model => model.ConfirmPassword)
+						@Html.PasswordFor(model => model.ConfirmPassword, new { @class="form-control", @placeholder="Gentag Password" })
+					</div>
+					<button type="submit" class="btn btn-primary">Opret</button>
+				}
+			</div>
+		</section>
+	</div>
+</div>

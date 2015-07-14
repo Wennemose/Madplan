@@ -2,7 +2,22 @@
 @{
     Layout = "Master.cshtml";
 }
-@Html.Action("RenderProfileDetails","ProfileDetailsSurface")
 
-<hr />
-@Html.Action("RenderUserData", "UserDataSurface");
+
+<section class="wrapper">
+	
+	<div class="row">
+		<div class="col-lg-12">
+			<h3 class="page-header">@Umbraco.Field("PageTitle")</h3>
+			@Html.Partial("Breadcrumb")
+		</div>
+	</div>
+	
+	@if (!HttpContext.Current.User.Identity.IsAuthenticated)
+	{ 
+		@Html.Action("RenderAccount","AccountSurface")
+	}
+	
+</section>
+
+

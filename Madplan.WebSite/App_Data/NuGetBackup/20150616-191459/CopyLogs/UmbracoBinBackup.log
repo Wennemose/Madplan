@@ -1,38 +1,0 @@
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : 16. juni 2015 19:14:59
-   Source : C:\Projects\Madplan\Madplan.WebSite\bin\
-     Dest : C:\Projects\Madplan\Madplan.WebSite\App_Data\NuGetBackup\20150616-191459\bin\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	                   8	C:\Projects\Madplan\Madplan.WebSite\bin\
-	    New File  		   45416	Microsoft.Web.Infrastructure.dll  0%  100%  
-	    New File  		   23640	Microsoft.Web.Mvc.FixedDisplayModes.dll  0%  100%  
-	    New File  		  138352	System.Web.Helpers.dll  0%   94%  100%  
-	    New File  		  506976	System.Web.Mvc.dll  0%   25%   51%   77%  100%  
-	    New File  		  266888	System.Web.Razor.dll  0%   49%   98%  100%  
-	    New File  		   41048	System.Web.WebPages.Deployment.dll  0%  100%  
-	    New File  		  204400	System.Web.WebPages.dll  0%   64%  100%  
-	    New File  		   39536	System.Web.WebPages.Razor.dll  0%  100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :         1         0         0         0         0         0
-   Files :         8         8         0         0         0         0
-   Bytes :    1.20 m    1.20 m         0         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :            19185696 Bytes/sec.
-   Speed :            1097.814 MegaBytes/min.
-   Ended : 16. juni 2015 19:14:59
-

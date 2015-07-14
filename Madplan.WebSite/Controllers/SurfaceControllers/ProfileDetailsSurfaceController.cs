@@ -64,9 +64,11 @@ namespace Madplan.WebSite.Controllers.SurfaceControllers
 			if (loginresult)
 			{
 				user = SqlMembershipProvider.GetUser(model.Name, true);
+				FormsAuthentication.SetAuthCookie(user.UserName, model.Persistent);
 			}
 
 			var result = new { Result = loginresult, User = user };
+			
 			return Json(result);
 		}
 
