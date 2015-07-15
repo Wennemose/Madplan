@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FoodplanModelStoreContainer" CdmEntityContainer="FoodplanEntities">
+    <EntitySetMapping Name="aspnet_Users">
+      <EntityTypeMapping TypeName="FoodplanModel.aspnet_Users">
+        <MappingFragment StoreEntitySet="aspnet_Users">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+          <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+          <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DietPlans">
+      <EntityTypeMapping TypeName="FoodplanModel.DietPlans">
+        <MappingFragment StoreEntitySet="DietPlans">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FoodProduct">
+      <EntityTypeMapping TypeName="FoodplanModel.FoodProduct">
+        <MappingFragment StoreEntitySet="FoodProduct">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Protein" ColumnName="Protein" />
+          <ScalarProperty Name="Fat" ColumnName="Fat" />
+          <ScalarProperty Name="Carbonhydrate" ColumnName="Carbonhydrate" />
+          <ScalarProperty Name="Calories" ColumnName="Calories" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recipe">
+      <EntityTypeMapping TypeName="FoodplanModel.Recipe">
+        <MappingFragment StoreEntitySet="Recipe">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="RecipeToFoodProduct" TypeName="FoodplanModel.RecipeToFoodProduct" StoreEntitySet="RecipeToFoodProduct">
+      <EndProperty Name="FoodProduct">
+        <ScalarProperty Name="Id" ColumnName="FoodProductId" />
+      </EndProperty>
+      <EndProperty Name="Recipe">
+        <ScalarProperty Name="Id" ColumnName="RecipeId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Userdata">
+      <EntityTypeMapping TypeName="FoodplanModel.Userdata">
+        <MappingFragment StoreEntitySet="Userdata">
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,30 @@
+@using Madplan.WebSite.Controllers.SurfaceControllers
+@using Madplan.WebSite.Models
+@model ProfileToolsModel
+<div class="top-nav notification-row">	
+	@if (HttpContext.Current.User.Identity.IsAuthenticated)
+	{
+		<ul class="nav pull-right top-menu">
+			<li class="dropdown">
+				<a data-toggle="dropdown" class="dropdown-toggle" href="#">			
+					<span class="username">@HttpContext.Current.User.Identity.Name</span>
+					<b class="caret"></b>	
+				</a>
+				<ul class="dropdown-menu extended logout">
+					<div class="log-arrow-up"></div>
+					<li class="eborder-top">
+						<a href="/my-profile"><i class="icon_profile"></i>Min profil</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	}
+	else
+	{
+	 <ul class="nav top-menu">
+		 <li>
+		<a href="/my-profile"><i class="icon_profile"></i>Login</a>
+			 </li>
+		 </ul>
+	}
+</div>

@@ -2,44 +2,84 @@
 @using Madplan.WebSite.Models
 @model UserDataModel
 
-@using(Ajax.BeginForm("SetUserData", "UserDataSurface", new AjaxOptions{HttpMethod = "POST", OnFailure="Showerror", OnSuccess ="ShowUpdateMessage"}))
-    {
-    @Html.ValidationSummary(true)
+<script type="text/javascript">
+	function ToggleEdit(data)
+	{
+		// update properties 
+		if (data != undefined && data != -1)
+		{
+			$("#age").html(data.Age);
+			$("#weight").html(data.Weight);
+			$("#height").html(data.Height);
+		}
 
-    <fieldset>
-        <legend>UserDataModel</legend>
+		// toggle view
+		$("#userdatatable").toggle();
+		$("#userdataform").toggle();
+	}
+</script>
 
-        
-		<div class="editor-label">
-            @Html.LabelFor(model => model.Weight)
-        </div>
+<div class="row" id="userdatatable">
+	<div class="col-lg-6">
+		<section class="panel">
+			<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<tr>
+						<th colspan="2">Mine Data</th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>Alder</td>
+					<td id="age">@Model.Age</td>
+				</tr>
+				<tr>
+					<td>Vægt</td>
+					<td id="weight">@Model.Weight</td>
+				</tr>
+				<tr>
+					<td>Højde</td>
+					<td id="height">@Model.Height</td>
+				</tr>
+				</tbody>
+			</table>
+			</div>
+			<button class="btn btn-primary" type="button" onclick="ToggleEdit();">Rediger</button><br /><br />
+		</section>
+	</div>
+</div>
 
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Weight)
-            @Html.ValidationMessageFor(model => model.Weight)
-        </div>
-        
-		<div class="editor-label">
-            @Html.LabelFor(model => model.Height)
-        </div>
-
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Height)
-            @Html.ValidationMessageFor(model => model.Height)
-        </div>
-        
-		<div class="editor-label">
-            @Html.LabelFor(model => model.Age)
-        </div>
-
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Age)
-            @Html.ValidationMessageFor(model => model.Age)
-        </div>
-            @Html.HiddenFor(model => Model.Id)
-         
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-}
+<div class="row" id="userdataform" style="display:none;">
+	@using (Ajax.BeginForm("SetUserData", "UserDataSurface", new AjaxOptions { HttpMethod = "POST", OnFailure = "OnFailure", OnSuccess = "ToggleEdit" }))
+	{ 
+		<div class="col-lg-6">
+			<section class="panel">
+				<div class="table-responsive">
+				<table class="table">
+					<thead>
+					<tr>
+						<th colspan="2">Mine Data</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>Alder</td>
+						<td>@Html.TextBoxFor(model => model.Age)</td>
+					</tr>
+					<tr>
+						<td>Vægt</td>
+						<td>@Html.TextBoxFor(model => model.Weight)</td>
+					</tr>
+					<tr>
+						<td>Højde</td>
+						<td>@Html.TextBoxFor(model => model.Height)</td>
+					</tr>
+					</tbody>
+				</table>
+				</div>
+				<button type="submit" class="btn btn-primary">Gem</button>
+			</section>
+		</div>
+	}
+</div>

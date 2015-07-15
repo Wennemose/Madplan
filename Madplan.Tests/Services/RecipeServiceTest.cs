@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Madplan.ClassLibrary.Models.Recipe;
+using Madplan.ClassLibrary;
 using Madplan.ClassLibrary.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -16,7 +16,7 @@ namespace Madplan.Tests.Services
 			RecipeService recipeService = new RecipeService();
 			Recipe recipe = new Recipe();
 			recipe.Name = "Rødgrød med fløde";
-			recipe.Calories = 1000000;
+			//recipe. = 1000000;
 
 			// TEST
 			bool result = recipeService.AddRecipes(recipe);

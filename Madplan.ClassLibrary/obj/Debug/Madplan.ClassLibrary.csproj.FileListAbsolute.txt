@@ -17,3 +17,8 @@ C:\MadplanRepro\Madplan\Madplan.ClassLibrary\obj\Debug\Madplan.ClassLibrary.dll
 C:\MadplanRepro\Madplan\Madplan.ClassLibrary\obj\Debug\Madplan.ClassLibrary.pdb
 C:\MadplanRepro\Madplan\Madplan.ClassLibrary\bin\Debug\Madplan.ClassLibrary.dll
 C:\MadplanRepro\Madplan\Madplan.ClassLibrary\bin\Debug\Madplan.ClassLibrary.pdb
+C:\Projects\GitRepo\madplan2\Madplan\Madplan.ClassLibrary\bin\Debug\Madplan.ClassLibrary.dll.config
+C:\Projects\GitRepo\madplan2\Madplan\Madplan.ClassLibrary\bin\Debug\EntityFramework.dll
+C:\Projects\GitRepo\madplan2\Madplan\Madplan.ClassLibrary\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projects\GitRepo\madplan2\Madplan\Madplan.ClassLibrary\bin\Debug\EntityFramework.xml
+C:\Projects\GitRepo\madplan2\Madplan\Madplan.ClassLibrary\bin\Debug\EntityFramework.SqlServer.xml

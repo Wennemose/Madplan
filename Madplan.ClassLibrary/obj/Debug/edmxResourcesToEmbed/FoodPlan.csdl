@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FoodplanModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="FoodplanEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="aspnet_Users" EntityType="FoodplanModel.aspnet_Users" />
+    <EntitySet Name="DietPlans" EntityType="FoodplanModel.DietPlans" />
+    <EntitySet Name="FoodProduct" EntityType="FoodplanModel.FoodProduct" />
+    <EntitySet Name="Recipe" EntityType="FoodplanModel.Recipe" />
+    <AssociationSet Name="FK_DietPlans_aspnet_Users" Association="FoodplanModel.FK_DietPlans_aspnet_Users">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="DietPlans" EntitySet="DietPlans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DietPlans_Recipe" Association="FoodplanModel.FK_DietPlans_Recipe">
+      <End Role="Recipe" EntitySet="Recipe" />
+      <End Role="DietPlans" EntitySet="DietPlans" />
+    </AssociationSet>
+    <AssociationSet Name="RecipeToFoodProduct" Association="FoodplanModel.RecipeToFoodProduct">
+      <End Role="FoodProduct" EntitySet="FoodProduct" />
+      <End Role="Recipe" EntitySet="Recipe" />
+    </AssociationSet>
+    <EntitySet Name="Userdata" EntityType="FoodplanModel.Userdata" />
+    <AssociationSet Name="FK_Userdata_aspnet_Users" Association="FoodplanModel.FK_Userdata_aspnet_Users">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="Userdata" EntitySet="Userdata" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="aspnet_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="LoweredUserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="MobileAlias" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+    <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
+    <Property Name="LastActivityDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="DietPlans" Relationship="FoodplanModel.FK_DietPlans_aspnet_Users" FromRole="aspnet_Users" ToRole="DietPlans" />
+    <NavigationProperty Name="Userdata" Relationship="FoodplanModel.FK_Userdata_aspnet_Users" FromRole="aspnet_Users" ToRole="Userdata" />
+  </EntityType>
+  <EntityType Name="DietPlans">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="RecipeId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="aspnet_Users" Relationship="FoodplanModel.FK_DietPlans_aspnet_Users" FromRole="DietPlans" ToRole="aspnet_Users" />
+    <NavigationProperty Name="Recipe" Relationship="FoodplanModel.FK_DietPlans_Recipe" FromRole="DietPlans" ToRole="Recipe" />
+  </EntityType>
+  <EntityType Name="FoodProduct">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Protein" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+    <Property Name="Fat" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+    <Property Name="Carbonhydrate" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+    <Property Name="Calories" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Recipes" Relationship="FoodplanModel.RecipeToFoodProduct" FromRole="FoodProduct" ToRole="Recipe" />
+  </EntityType>
+  <EntityType Name="Recipe">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="DietPlans" Relationship="FoodplanModel.FK_DietPlans_Recipe" FromRole="Recipe" ToRole="DietPlans" />
+    <NavigationProperty Name="FoodProduct" Relationship="FoodplanModel.RecipeToFoodProduct" FromRole="Recipe" ToRole="FoodProduct" />
+  </EntityType>
+  <Association Name="FK_DietPlans_aspnet_Users">
+    <End Role="aspnet_Users" Type="FoodplanModel.aspnet_Users" Multiplicity="1" />
+    <End Role="DietPlans" Type="FoodplanModel.DietPlans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="DietPlans">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DietPlans_Recipe">
+    <End Role="Recipe" Type="FoodplanModel.Recipe" Multiplicity="1" />
+    <End Role="DietPlans" Type="FoodplanModel.DietPlans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recipe">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DietPlans">
+        <PropertyRef Name="RecipeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RecipeToFoodProduct">
+    <End Role="FoodProduct" Type="FoodplanModel.FoodProduct" Multiplicity="*" />
+    <End Role="Recipe" Type="FoodplanModel.Recipe" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Userdata">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+    <Property Type="Int32" Name="Weight" />
+    <Property Type="Int32" Name="Height" />
+    <Property Type="Int32" Name="Age" />
+    <NavigationProperty Name="aspnet_Users" Relationship="FoodplanModel.FK_Userdata_aspnet_Users" FromRole="Userdata" ToRole="aspnet_Users" />
+  </EntityType>
+  <Association Name="FK_Userdata_aspnet_Users">
+    <End Type="FoodplanModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="FoodplanModel.Userdata" Role="Userdata" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Userdata">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

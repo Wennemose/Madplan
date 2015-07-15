@@ -1,13 +1,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Madplan.ClassLibrary.Models.FoodProduct; 
+using Madplan.ClassLibrary;
 namespace Madplan.WebSite.Models
 { 
 	public class FoodProductsListModel
 	{
 		public FoodProductsListModel()
 		{
-
 		}
 
 		public FoodProductsListModel(List<FoodProduct> foodproducts)
@@ -15,7 +14,6 @@ namespace Madplan.WebSite.Models
 			FoodProducts = foodproducts;
 		}
 
-		[Required]
 		public string Query {get; set;}
 		
 		public List<FoodProduct> FoodProducts {get; set;}

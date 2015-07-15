@@ -17,7 +17,7 @@ namespace Madplan.Tests.Services
 		public void TestReadFvdbFile()
 		{ 
 			// SETUP
-			FoodProductService foodProductService = new FoodProductService("Data Source=.;Initial Catalog=Foodplan;Integrated Security=True");
+			FoodProductService foodProductService = new FoodProductService();
 			
 			// TEST
 			bool result = foodProductService.ReadFvdbFile(@"..\..\..\Dependencies\fvdb\DKfdtp701.xml");

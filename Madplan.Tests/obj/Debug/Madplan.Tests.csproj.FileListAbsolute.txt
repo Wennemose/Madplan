@@ -216,3 +216,7 @@ C:\MadplanRepro\Madplan\Madplan.Tests\bin\Debug\MiniProfiler.xml
 C:\MadplanRepro\Madplan\Madplan.Tests\obj\Debug\Madplan.Tests.csprojResolveAssemblyReference.cache
 C:\MadplanRepro\Madplan\Madplan.Tests\obj\Debug\Madplan.Tests.dll
 C:\MadplanRepro\Madplan\Madplan.Tests\obj\Debug\Madplan.Tests.pdb
+C:\Projects\GitRepo\madplan2\Madplan\Madplan.Tests\bin\Debug\EntityFramework.dll
+C:\Projects\GitRepo\madplan2\Madplan\Madplan.Tests\bin\Debug\EntityFramework.xml
+C:\Projects\GitRepo\madplan2\Madplan\Madplan.Tests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projects\GitRepo\madplan2\Madplan\Madplan.Tests\bin\Debug\EntityFramework.SqlServer.xml

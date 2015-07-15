@@ -61,6 +61,14 @@ namespace Madplan.WebSite.Controllers.SurfaceControllers
 			var result = new { Status = status.ToString(), Name = model.Name };
 			return Json(result);
 		}
+
+		[HttpPost]
+		public ActionResult Logout()
+		{
+			FormsAuthentication.SignOut();
+
+			return Redirect("/");
+		}
 		
 	}
 }

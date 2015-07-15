@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6ef1c9c8320143318083e6226a798f36" Name="Diagram1">
+        <EntityTypeShape EntityType="FoodplanModel.aspnet_Users" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodplanModel.DietPlans" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodplanModel.FoodProduct" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodplanModel.Recipe" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="FoodplanModel.FK_DietPlans_aspnet_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodplanModel.FK_DietPlans_Recipe" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodplanModel.RecipeToFoodProduct" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FoodplanModel.Userdata" Width="1.5" PointX="7.75" PointY="4.125" />
+        <AssociationConnector Association="FoodplanModel.FK_Userdata_aspnet_Users" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

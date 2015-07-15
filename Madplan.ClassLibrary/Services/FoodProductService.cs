@@ -8,115 +8,77 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
-using Madplan.ClassLibrary.Models.FoodProduct;
 
 namespace Madplan.ClassLibrary.Services
 {
 	public class FoodProductService : IFoodProductService
 	{
-
-		private string _connectionString;
-
-		public FoodProductService(string connectionString)
-		{
-			_connectionString = connectionString;
-		}
-
 		public FoodProductService()
 		{
 		}
 
 		public List<FoodProduct> GetAllFoodProducts()
 		{
-			List<FoodProduct> result = new List<FoodProduct>();
-
-			try
+			List<FoodProduct> result = null;
+			using (FoodplanEntities context = new FoodplanEntities())
 			{
-				using (SqlConnection connection = new SqlConnection(_connectionString))
-				{
-					using (SqlCommand command = connection.CreateCommand())
-					{
-						command.CommandType = CommandType.StoredProcedure;
-						command.CommandText = "GetAllFoodProducts";
-
-						connection.Open();
-
-						using (SqlDataReader reader = command.ExecuteReader())
-						{
-							while (reader.Read())
-							{
-								FoodProduct product = new FoodProduct();
-								product.Calories = Convert.ToDecimal(reader["Calories"]);
-								product.Carbonhydrate = Convert.ToDecimal(reader["Carbonhydrate"]);
-								product.Fat = Convert.ToDecimal(reader["Fat"]);
-								product.Id = Convert.ToInt32(reader["Id"]);
-								product.Names["da-DK"] = Convert.ToString(reader["da-DK"]);
-								product.Names["en-US"] = Convert.ToString(reader["en-US"]);
-								product.Protein = Convert.ToDecimal(reader["Protein"]);
-
-								result.Add(product);
-							}
-						}
-					}
-				}
-			}
-			catch (Exception ex)
-			{
-				throw;
+				result = context.FoodProduct.Include("Recipes").ToList();
 			}
 
 			return result;
-			
 		}
 
-		public List<FoodProduct> GetFoodProduct(int id)
+		public FoodProduct GetFoodProduct(int id)
 		{
-			throw new NotImplementedException();
+			FoodProduct result = null;
+			using (FoodplanEntities context = new FoodplanEntities())
+			{
+				result = context.FoodProduct.Include("Recipes").Where(p => p.Id == id).FirstOrDefault();
+			}
+			return result;
 		}
 
 		public int AddFoodProduct(FoodProduct foodProduct)
 		{
 			int result = -1;
-
-			try
+			using (FoodplanEntities context = new FoodplanEntities())
 			{
-				using (SqlConnection connection = new SqlConnection(_connectionString))
-				{
-					using (SqlCommand command = connection.CreateCommand())
-					{
-						string danish = foodProduct.Names["da-DK"];
-						command.CommandText = "AddFoodProduct";
-						command.Parameters.AddWithValue("@daDK", foodProduct.Names["da-DK"]);
-						command.Parameters.AddWithValue("@enUS", foodProduct.Names["en-US"]);
-						command.Parameters.AddWithValue("@protein", foodProduct.Protein);
-						command.Parameters.AddWithValue("@fat", foodProduct.Fat);
-						command.Parameters.AddWithValue("@carbonhydrate", foodProduct.Carbonhydrate);
-						command.Parameters.AddWithValue("@calories", foodProduct.Calories);
-
-						command.CommandType = CommandType.StoredProcedure;
-						connection.Open();
-						result = (int)command.ExecuteScalar();
-					}
-				}
+				context.FoodProduct.Add(foodProduct);
+				result = context.SaveChanges();
 			}
-			catch (Exception ex)
-			{
-				
-				throw;
-			}
-		
 
 			return result;
 		}
 
-		public bool DeleteFoodProduct(int id)
+		public int DeleteFoodProduct(FoodProduct foodProduct)
 		{
-			throw new NotImplementedException();
+			int result = -1;
+			using (FoodplanEntities context = new FoodplanEntities())
+			{
+				context.FoodProduct.Remove(foodProduct);
+				result = context.SaveChanges();
+			}
+
+			return result;
 		}
 
-		public bool UpdateFoodProduct(FoodProduct foodProduct)
+		public int UpdateFoodProduct(FoodProduct foodProduct)
 		{
-			throw new NotImplementedException();
+			int result = -1;
+			using (FoodplanEntities context = new FoodplanEntities())
+			{
+				FoodProduct original = context.FoodProduct.FirstOrDefault(p => p.Id == foodProduct.Id);
+
+				original.Calories = foodProduct.Calories;
+				original.Carbonhydrate = foodProduct.Carbonhydrate;
+				original.Fat = foodProduct.Fat;
+				original.Name = foodProduct.Name;
+				original.Protein = foodProduct.Protein;
+
+				result = context.SaveChanges();
+			}
+
+			return result;
 		}
 
 
@@ -153,8 +115,8 @@ namespace Madplan.ClassLibrary.Services
 								string daDK = foodElement.Descendants("FoodName").Where(fn => fn.Attribute("language").Value == "da").First().Value;
 								string enUS = foodElement.Descendants("FoodName").Where(fn => fn.Attribute("language").Value == "en").First().Value;
 
-								product.Names.Add("da-DK", daDK);
-								product.Names.Add("en-US", enUS);
+								product.Name = daDK;
+								//product.Names.Add("en-US", enUS);
 
 								AddFoodProduct(product);
 							}

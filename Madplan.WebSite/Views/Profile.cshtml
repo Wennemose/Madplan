@@ -2,8 +2,6 @@
 @{
     Layout = "Master.cshtml";
 }
-
-
 <section class="wrapper">
 	
 	<div class="row">
@@ -12,11 +10,9 @@
 			@Html.Partial("Breadcrumb")
 		</div>
 	</div>
+
+	@Html.Action("RenderAccount","AccountSurface")
 	
-	@if (!HttpContext.Current.User.Identity.IsAuthenticated)
-	{ 
-		@Html.Action("RenderAccount","AccountSurface")
-	}
 	
 </section>
 

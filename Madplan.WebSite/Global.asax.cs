@@ -9,6 +9,7 @@ using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Madplan.ClassLibrary.Services;
+using Madplan.WebSite.Controllers.SurfaceControllers;
 using Umbraco.Web;
 
 namespace Madplan.WebSite
@@ -32,14 +33,14 @@ namespace Madplan.WebSite
 
 			var builder = new ContainerBuilder();
 
-			builder.Register(c => UmbracoContext.Current).AsSelf();
-
-			builder.RegisterControllers(typeof(MadplanApplication).Assembly);
-			builder.RegisterControllers(Assembly.GetExecutingAssembly());
-
-
+			// register controllers
+			builder.RegisterType<AccountSurfaceController>().SingleInstance();
+			builder.RegisterType<FoodProductsListSurfaceController>().SingleInstance();
+			builder.RegisterType<UserDataSurfaceController>().SingleInstance();
+			
 			// register services
 			builder.RegisterType<FoodProductService>().As<IFoodProductService>();
+			builder.RegisterType<UserdataService>().As<IUserdataService>();
 
 			IContainer container = builder.Build();
 

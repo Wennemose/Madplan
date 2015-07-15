@@ -73,7 +73,6 @@
 				Create
 			</header>
 			<div class="panel-body">
-
 				@using(Ajax.BeginForm("Create", "Account", new AjaxOptions { HttpMethod = "POST", OnFailure="ShowCreateError", OnSuccess="Create" }, new { @role="form", @id="createform"}))
 				{
 					<div class="form-group">
